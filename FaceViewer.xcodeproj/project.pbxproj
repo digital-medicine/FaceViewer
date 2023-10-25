@@ -11,6 +11,7 @@
 		5CB2985A2AE8FE1600FBD385 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CB298592AE8FE1600FBD385 /* ContentView.swift */; };
 		5CB2985C2AE8FE1700FBD385 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CB2985B2AE8FE1700FBD385 /* Assets.xcassets */; };
 		5CB2985F2AE8FE1700FBD385 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5CB2985E2AE8FE1700FBD385 /* Preview Assets.xcassets */; };
+		5CB298672AE9028700FBD385 /* head.obj in Resources */ = {isa = PBXBuildFile; fileRef = 5CB298662AE9028700FBD385 /* head.obj */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		5CB2985B2AE8FE1700FBD385 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5CB2985E2AE8FE1700FBD385 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5CB298602AE8FE1700FBD385 /* FaceViewer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FaceViewer.entitlements; sourceTree = "<group>"; };
+		5CB298662AE9028700FBD385 /* head.obj */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = head.obj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				5CB298572AE8FE1600FBD385 /* FaceViewerApp.swift */,
 				5CB298592AE8FE1600FBD385 /* ContentView.swift */,
+				5CB298662AE9028700FBD385 /* head.obj */,
 				5CB2985B2AE8FE1700FBD385 /* Assets.xcassets */,
 				5CB298602AE8FE1700FBD385 /* FaceViewer.entitlements */,
 				5CB2985D2AE8FE1700FBD385 /* Preview Content */,
@@ -127,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5CB298672AE9028700FBD385 /* head.obj in Resources */,
 				5CB2985F2AE8FE1700FBD385 /* Preview Assets.xcassets in Resources */,
 				5CB2985C2AE8FE1700FBD385 /* Assets.xcassets in Resources */,
 			);
