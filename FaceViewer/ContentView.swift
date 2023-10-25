@@ -102,8 +102,8 @@ struct ContentView: View {
             }
             
             Button("Stop timer & export as video") {
-                let settings = RenderSettings()
-                let imageAnimator = ImageAnimator(renderSettings: settings)
+                let settings = RenderSettings(size: CGSize(width: 300, height: 300))
+                let imageAnimator = ImageAnimator(renderSettings: settings, images: images)
                 imageAnimator.render() {
                     print("yes")
                 }

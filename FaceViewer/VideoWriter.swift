@@ -187,10 +187,10 @@ class ImageAnimator {
         }
     }
     
-    init(renderSettings: RenderSettings) {
+    init(renderSettings: RenderSettings, images: [NSImage]) {
         settings = renderSettings
         videoWriter = VideoWriter(renderSettings: settings)
-        //images = loadImages()
+        self.images = images
     }
     
     func render(completion: (()->Void)?) {
