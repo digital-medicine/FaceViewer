@@ -23,7 +23,14 @@ let dummyPoints = [
     PointWithColor(position: SCNVector3(x: 100, y: 0, z: 0), color: .orange),
 ]
 
-struct SceneView: NSViewRepresentable {
+@Observable
+class SceneViewModel {
+    weak var view: SCNView?
+}
+
+struct CustomSceneView: NSViewRepresentable {
+    @State var model: SceneViewModel
+    
     func makeNSView(context: Context) -> some NSView {
         let view = SCNView(frame: NSRect(x: 0, y: 0, width: 300, height: 300))
         let scene = SCNScene()
@@ -34,6 +41,7 @@ struct SceneView: NSViewRepresentable {
 //        }
         addFromOBJ(named: "head", to: scene)
         
+        model.view = view
         return view
     }
     
@@ -72,12 +80,42 @@ struct SceneView: NSViewRepresentable {
 }
 
 struct ContentView: View {
+    @State var model = SceneViewModel()
+    @State private var images: [NSImage] = []
+    
+    let timer = Timer.publish(every: 0.1, on: .main, in: .default).autoconnect()
+    
     var body: some View {
         VStack {
-            SceneView()
+            CustomSceneView(model: model)
                 .frame(width: 300, height: 300)
+            
+            ScrollView(.vertical) {
+                LazyVGrid(columns: Array(repeating: GridItem(), count: 3)) {
+                    ForEach(images, id: \.self) { image in
+                        Image(nsImage: image)
+                            .resizable()
+                            .scaledToFit()
+                            .frame(width: 100, height: 100)
+                    }
+                }
+            }
+            
+            Button("Stop timer & export as video") {
+                let settings = RenderSettings()
+                let imageAnimator = ImageAnimator(renderSettings: settings)
+                imageAnimator.render() {
+                    print("yes")
+                }
+            }
         }
+        .frame(width: 300, height: 700)
         .padding()
+        .onReceive(timer) { _ in
+            if let image = model.view?.snapshot() {
+                images.append(image)
+            }
+        }
     }
 }
 
